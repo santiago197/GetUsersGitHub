@@ -29,7 +29,7 @@ const LocationInformation = ({ userState }: Props) => {
         <Stack>
           <TwitterIcon />
           {twitter_username !== null
-            ? <Typography variant="body1" color="initial">{twitter_username}</Typography>
+            ? <Typography variant="body1" color="initial">@{twitter_username}</Typography>
             : <Typography variant="body1" color="initial">Not Available</Typography>
           }
         </Stack>
@@ -46,8 +46,8 @@ const LocationInformation = ({ userState }: Props) => {
       <Grid item xs={6}>
         <Stack>
           <BusinessIcon />
-          {userState.company !== null
-            ? <Typography variant="body1" color="initial">{userState.company}</Typography>
+          {company !== null
+            ? <Typography variant="body1" color="initial">{company}</Typography>
             : <Typography variant="body1" color="initial">Not Available</Typography>
           }
         </Stack>

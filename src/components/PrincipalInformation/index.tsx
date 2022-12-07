@@ -1,15 +1,22 @@
 import { Stack, Typography } from "@mui/material";
+interface User {
+  name: string,
+  created_at: string,
+  login: string,
+}
 interface Props {
-  userState: (e: string) => void,
+  userState: User
 }
 const PrincipalInformation = ({ userState }: Props) => {
+  const { name, created_at, login } = userState;
+
   return (
     <>
       <Stack>
-        <Typography>{userState.name}</Typography>
-        <Typography>{userState.created_at}</Typography>
+        <Typography>{name}</Typography>
+        <Typography>{created_at}</Typography>
       </Stack>
-      <Typography>{userState.login}</Typography>
+      <Typography>{login}</Typography>
     </>
   )
 }

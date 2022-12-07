@@ -1,23 +1,29 @@
 import { Paper, Stack, Typography } from '@mui/material';
 
+interface User {
+  public_repos: string,
+  followers: string,
+  following: string
+}
 interface Props {
-  userState: (e: any) => void,
+  userState: User
 }
 const PaperInformation = ({ userState }: Props) => {
+  const { public_repos, followers, following } = userState;
   return (
     <>
       <Paper elevation={3}>
         <Stack>
           <Typography>Repos</Typography>
-          <Typography>{userState.public_repos}</Typography>
+          <Typography>{public_repos}</Typography>
         </Stack>
         <Stack>
           <Typography>Followers</Typography>
-          <Typography>{userState.followers}</Typography>
+          <Typography>{followers}</Typography>
         </Stack>
         <Stack>
           <Typography>Following</Typography>
-          <Typography>{userState.following}</Typography>
+          <Typography>{following}</Typography>
         </Stack>
       </Paper>
     </>
