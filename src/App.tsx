@@ -12,13 +12,26 @@ interface User {
   location: string,
   followers: string,
   following: string,
-  login: string
+  login: string,
+  name: string,
+  created_at: string,
+  avatar_url: string
 }
 function App() {
   const [inputUser, setInputUser] = useState('octocat');
   const [userState, setUserState] = useState({
     bio: '',
-    login: 'octocat'
+    public_repos: '',
+    twitter_username: '',
+    blog: '',
+    company: '',
+    location: '',
+    followers: '',
+    following: '',
+    login: '',
+    name: '',
+    created_at: '',
+    avatar_url: ''
   });
   const [notFound, setNotFound] = useState(false);
   const getUser = async (user: string) => {
