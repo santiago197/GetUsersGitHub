@@ -12,7 +12,9 @@ interface User {
   blog: string,
   company: string,
   location: string,
-  twitter_username: string
+  twitter_username: string,
+  followers: string,
+  following: string
 }
 interface Props {
   userState: User
@@ -25,7 +27,7 @@ const UserCard = ({ userState }: Props) => {
         <Avatar
           alt="Image user GitHub"
           src={avatar_url}
-          sx={{ width: 200, height: 230 }}
+          sx={{ width: 200, height: 200 }}
         />
       </Grid>
       <Grid item xs={9}>

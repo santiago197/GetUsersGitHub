@@ -3,15 +3,28 @@ import { Container } from "@mui/material";
 import { getUsers } from "./services/users";
 import Searcher from "./components/Searcher/index";
 import UserCard from "./containers/userCard/index"
-
+interface User {
+  bio: string,
+  public_repos: string,
+  twitter_username: string,
+  blog: string,
+  company: string,
+  location: string,
+  followers: string,
+  following: string,
+  login: string
+}
 function App() {
   const [inputUser, setInputUser] = useState('octocat');
-  const [userState, setUserState] = useState({});
+  const [userState, setUserState] = useState({
+    bio: '',
+    login: 'octocat'
+  });
   const [notFound, setNotFound] = useState(false);
   const getUser = async (user: string) => {
     const userResponse = await getUsers(user)
     console.log(userResponse);
-    if (userState === 'octocat') {
+    if (userState.login === 'octocat') {
       localStorage.setItem('octocat', userResponse)
     }
 
