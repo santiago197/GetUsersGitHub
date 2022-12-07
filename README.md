@@ -1,5 +1,5 @@
 # GetUsersGitHub
 
-cd GetUsersGitHub
-npm install
-npm run dev
+- cd GetUsersGitHub
+- npm install
+- npm run dev
