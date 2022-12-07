@@ -6,7 +6,7 @@ import UserCard from "./containers/userCard/index"
 
 function App() {
   const [inputUser, setInputUser] = useState('octocat');
-  const [userState, setUserState] = useState(inputUser);
+  const [userState, setUserState] = useState({});
   const [notFound, setNotFound] = useState(false);
   const getUser = async (user: string) => {
     const userResponse = await getUsers(user)
@@ -18,6 +18,7 @@ function App() {
     if (userResponse.message === 'Not Found') {
       const { octocat } = localStorage;
       setInputUser(octocat);
+      getUser('octocat');
       setNotFound(true);
     } else {
       setUserState(userResponse);
@@ -32,7 +33,6 @@ function App() {
     <Container sx={{
       background: 'whitesmoke',
       width: '80vw',
-      height: '500px',
       borderRadius: 4,
       mt: 5,
       display: 'flex',

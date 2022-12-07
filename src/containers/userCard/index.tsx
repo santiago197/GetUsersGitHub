@@ -1,4 +1,4 @@
-import { Grid, Avatar } from '@mui/material';
+import { Grid, Avatar, Stack } from '@mui/material';
 import PrincipalInformation from "../../components/PrincipalInformation/index";
 import Description from "../../containers/Description/index";
 
@@ -29,9 +29,11 @@ const UserCard = ({ userState }: Props) => {
         />
       </Grid>
       <Grid item xs={9}>
-        <PrincipalInformation userState={userState} />
+        <Stack direction="column" spacing={1} sx={{ m: 3 }}>
+          <PrincipalInformation userState={userState} />
+          <Description userState={userState} />
+        </Stack>
       </Grid>
-      <Description userState={userState} />
     </Grid >
   )
 }

@@ -15,9 +15,13 @@ interface Props {
 const LocationInformation = ({ userState }: Props) => {
   const { location, twitter_username, blog, company } = userState;
   return (
-    <Grid container>
+    <Grid
+      container
+      spacing={2}
+      sx={{ mt: 2 }}
+    >
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction="row" spacing={2}>
           <LocationOnIcon />
           {location !== null
             ? <Typography variant="body1" color="initial">{location}</Typography>
@@ -26,7 +30,7 @@ const LocationInformation = ({ userState }: Props) => {
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction="row" spacing={2}>
           <TwitterIcon />
           {twitter_username !== null
             ? <Typography variant="body1" color="initial">@{twitter_username}</Typography>
@@ -35,16 +39,16 @@ const LocationInformation = ({ userState }: Props) => {
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction="row" spacing={2}>
           <LanguageIcon />
           {blog !== null
-            ? <Typography variant="body1" color="initial">{blog}</Typography>
+            ? <a href={blog} target="_black"><Typography variant="body1" color="initial">{blog}</Typography></a>
             : <Typography variant="body1" color="initial">Not Available</Typography>
           }
         </Stack>
       </Grid>
       <Grid item xs={6}>
-        <Stack>
+        <Stack direction="row" spacing={2}>
           <BusinessIcon />
           {company !== null
             ? <Typography variant="body1" color="initial">{company}</Typography>
