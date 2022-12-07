@@ -3,18 +3,24 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LanguageIcon from "@mui/icons-material/Language";
 import BusinessIcon from '@mui/icons-material/Business';
+interface User {
+  location: string,
+  twitter_username: string,
+  blog: string,
+  company: string
+}
 interface Props {
-  userState: (e: any) => void,
+  userState: User
 }
 const LocationInformation = ({ userState }: Props) => {
-  //{ location } = userState;
+  const { location, twitter_username, blog, company } = userState;
   return (
     <Grid container>
       <Grid item xs={6}>
         <Stack>
           <LocationOnIcon />
-          {userState.location !== null
-            ? <Typography variant="body1" color="initial">{userState.location}</Typography>
+          {location !== null
+            ? <Typography variant="body1" color="initial">{location}</Typography>
             : <Typography variant="body1" color="initial">Not Available</Typography>
           }
         </Stack>
@@ -22,8 +28,8 @@ const LocationInformation = ({ userState }: Props) => {
       <Grid item xs={6}>
         <Stack>
           <TwitterIcon />
-          {userState.twitter_username !== null
-            ? <Typography variant="body1" color="initial">{userState.twitter_username}</Typography>
+          {twitter_username !== null
+            ? <Typography variant="body1" color="initial">{twitter_username}</Typography>
             : <Typography variant="body1" color="initial">Not Available</Typography>
           }
         </Stack>
@@ -31,8 +37,8 @@ const LocationInformation = ({ userState }: Props) => {
       <Grid item xs={6}>
         <Stack>
           <LanguageIcon />
-          {userState.blog !== null
-            ? <Typography variant="body1" color="initial">{userState.blog}</Typography>
+          {blog !== null
+            ? <Typography variant="body1" color="initial">{blog}</Typography>
             : <Typography variant="body1" color="initial">Not Available</Typography>
           }
         </Stack>
